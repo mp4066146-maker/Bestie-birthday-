@@ -58,4 +58,5 @@ balloon.style.left=Math.random()*100+"vw";
 document.body.appendChild(balloon);
 
 }
-}
+
+alert("SCRIPT WORKING");
