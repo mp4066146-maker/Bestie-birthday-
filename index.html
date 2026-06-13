@@ -1,4 +1,3 @@
-<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +22,7 @@ justify-content:center;
 align-items:center;
 z-index:99999;
 color:white;
-font-size:24px;
+font-size:26px;
 font-weight:bold;
 }
 
@@ -41,16 +40,7 @@ border:8px solid white;
 box-shadow:0 0 30px rgba(255,255,255,.7);
 }
 
-h1{
-font-size:42px;
-color:white;
-}
-
-h2{
-color:white;
-}
-
-.message,#gift{
+.card{
 background:white;
 margin:20px;
 padding:20px;
@@ -58,32 +48,11 @@ border-radius:25px;
 box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-.gallery{
-display:flex;
-overflow-x:auto;
-gap:15px;
-padding:20px;
-}
-
 .gallery img{
-width:220px;
-height:300px;
+width:240px;
+height:320px;
 object-fit:cover;
 border-radius:20px;
-}
-
-button{
-padding:16px 35px;
-border:none;
-border-radius:40px;
-font-size:20px;
-background:#ff4d88;
-color:white;
-cursor:pointer;
-}
-
-#gift{
-display:none;
 }
 
 .heart,.balloon{
@@ -93,62 +62,65 @@ z-index:9999;
 }
 
 .heart{
-animation:heartMove 12s linear infinite;
+animation:heartMove 12s linear forwards;
 }
 
 .balloon{
-animation:balloonMove 18s linear infinite;
+animation:balloonMove 18s linear forwards;
 }
 
 @keyframes heartMove{
-0%{
-transform:translateY(100vh);
-opacity:1;
-}
-100%{
-transform:translateY(-180vh);
-opacity:0;
-}
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-180vh);}
 }
 
 @keyframes balloonMove{
-0%{
-transform:translateY(100vh);
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-220vh);}
 }
-100%{
-transform:translateY(-220vh);
-}
-}
-</style></head><body><div id="loader">
+</style></head>
+<body><div id="loader">
 🎁 A Special Surprise For Bestie ❤️
-</div><div class="hero">
-<img src="file_000000008b9871fa8c859153eaff21d4.png"><h1>🎂 Happy 17th Birthday Bestie 🎂</h1><h2>From Nitish Patel ❤️</h2><p>My Best Friend Forever 💖</p>
-</div><div class="message">
-<h2>💌 A Special Message For You</h2><p>
-Hey Bestie ❤️<br><br>
-Aaj tumhara special day hai.<br>
-Main dua karta hu ki tumhari life happiness, success aur beautiful memories se bhar jaye. ✨<br><br>
-Thank you for being such an amazing best friend. 🤝💖<br><br>
-Happy 17th Birthday Bestie 🎂🎉
-</p>
-</div><h2>📸 Beautiful Memories</h2><div class="gallery">
-<img src="IMG-20260118-WA0005.jpg">
-<img src="IMG-20260404-WA0000.jpg">
-<img src="IMG-20260418-WA0006.jpg">
-<img src="IMG-20260613-WA0000.jpg">
-<img src="file_000000008b9871fa8c859153eaff21d4.png">
-</div><button onclick="openGift()">🎁 Open Surprise Gift</button>
+</div><div class="hero"><img id="slideshow" src="IMG-20260118-WA0005.jpg"><h1>🎂 Happy 17th Birthday Bestie 🎂</h1><h2>From Nitish Patel ❤️</h2><p>My Best Friend Forever 💖</p></div><div class="card"><h2>💌 A Special Message For You</h2><p id="typing"></p></div><div class="card"><h2>📸 Beautiful Memories</h2><div class="gallery">
+<img id="slideImage" src="IMG-20260118-WA0005.jpg">
+</div></div><button onclick="openGift()">🎁 Open Surprise Gift</button>
 
-<div id="gift">
-<h2>🎉 Surprise Gift 🎉</h2>
-<p>
+<div id="gift" class="card" style="display:none;"><h2>🎉 Surprise Gift 🎉</h2><p>
 💖 Unlimited Happiness<br>
 🌟 Success In Life<br>
 😊 Beautiful Memories<br>
 🎂 Wonderful Birthday<br>
 🤝 Forever Friendship
-</p>
-</div><script>
+</p></div>
+<script>
+
+const photos=[
+"IMG-20260118-WA0005.jpg",
+"IMG-20260404-WA0000.jpg",
+"IMG-20260418-WA0006.jpg",
+"IMG-20260613-WA0000.jpg",
+"file_000000008b9871fa8c859153eaff21d4.png"
+];
+
+let current=0;
+
+setInterval(()=>{
+current=(current+1)%photos.length;
+document.getElementById("slideImage").src=photos[current];
+document.getElementById("slideshow").src=photos[current];
+},3000);
+
+const message="Hey Bestie ❤️ Aaj tumhara special day hai. Main dua karta hu ki tumhari life happiness, success aur beautiful memories se bhar jaye. Thank you for being such an amazing best friend. Happy 17th Birthday Bestie 🎂🎉";
+
+let i=0;
+
+function typeWriter(){
+if(i<message.length){
+document.getElementById("typing").innerHTML += message.charAt(i);
+i++;
+setTimeout(typeWriter,40);
+}
+}
 
 window.onload=function(){
 
@@ -160,6 +132,7 @@ origin:{y:0.6}
 
 setTimeout(()=>{
 document.getElementById("loader").style.display="none";
+typeWriter();
 
 alert("🎉 Welcome Bestie!\n\nA Special Birthday Surprise Awaits You ❤️");
 
@@ -168,17 +141,26 @@ alert("🎉 Welcome Bestie!\n\nA Special Birthday Surprise Awaits You ❤️");
 };
 
 function openGift(){
+
 document.getElementById("gift").style.display="block";
 
+confetti({
+particleCount:150,
+spread:120
+});
+
 alert("🎂 Happy 17th Birthday Bestie ❤️\n\nFrom Nitish Patel");
+
 }
 
 setInterval(()=>{
+
 let heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="💖";
 heart.style.left=Math.random()*100+"vw";
 heart.style.fontSize=(20+Math.random()*25)+"px";
+
 document.body.appendChild(heart);
 
 setTimeout(()=>{
@@ -188,11 +170,13 @@ heart.remove();
 },1200);
 
 setInterval(()=>{
+
 let balloon=document.createElement("div");
 balloon.className="balloon";
 balloon.innerHTML="🎈";
 balloon.style.left=Math.random()*100+"vw";
 balloon.style.fontSize=(30+Math.random()*30)+"px";
+
 document.body.appendChild(balloon);
 
 setTimeout(()=>{
@@ -201,5 +185,4 @@ balloon.remove();
 
 },2000);
 
-</script></body>
-</html>
+  </script>
