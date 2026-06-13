@@ -77,33 +77,43 @@ z-index:9999;
 }
 
 .heart{
-font-size:30px;
-animation:heartMove 5s linear infinite;
+animation:heartMove 12s linear infinite;
 }
 
 .balloon{
-font-size:40px;
-animation:balloonMove 10s linear infinite;
+animation:balloonMove 18s linear infinite;
 }
 
 @keyframes heartMove{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-120vh);}
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+100%{
+transform:translateY(-180vh);
+opacity:0;
+}
 }
 
 @keyframes balloonMove{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-140vh);}
+0%{
+transform:translateY(100vh);
 }
-</style></head><body><div class="hero"><img src="file_000000008b9871fa8c859153eaff21d4.png"><h1>🎂 Happy 17th Birthday Bestie 🎂</h1><h2>From Nitish Patel ❤️</h2><p>My Best Friend Forever 💖</p></div><div class="message"><h2>💌 A Special Message For You</h2><p>
-Hey Bestie ❤️<br><br>Aaj tumhara special day hai.<br>
+100%{
+transform:translateY(-220vh);
+}
+}
+</style></head><body><div class="hero">
+<img src="file_000000008b9871fa8c859153eaff21d4.png"><h1>🎂 Happy 17th Birthday Bestie 🎂</h1><h2>From Nitish Patel ❤️</h2><p>My Best Friend Forever 💖</p>
+</div><div class="message">
+<h2>💌 A Special Message For You</h2><p>
+Hey Bestie ❤️<br><br>
+Aaj tumhara special day hai.<br>
 Main dua karta hu ki tumhari life happiness, success aur beautiful memories se bhar jaye. ✨<br><br>
-
 Thank you for being such an amazing best friend. 🤝💖<br><br>
-
 Happy 17th Birthday Bestie 🎂🎉
-
-</p></div><h2>📸 Beautiful Memories</h2><div class="gallery">
+</p>
+</div><h2>📸 Beautiful Memories</h2><div class="gallery">
 <img src="IMG-20260118-WA0005.jpg">
 <img src="IMG-20260404-WA0000.jpg">
 <img src="IMG-20260418-WA0006.jpg">
@@ -134,24 +144,28 @@ let heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="💖";
 heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(20+Math.random()*25)+"px";
 document.body.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
-},5000);
-},300);
+},12000);
+
+},1200);
 
 setInterval(()=>{
 let balloon=document.createElement("div");
 balloon.className="balloon";
 balloon.innerHTML="🎈";
 balloon.style.left=Math.random()*100+"vw";
+balloon.style.fontSize=(30+Math.random()*30)+"px";
 document.body.appendChild(balloon);
 
 setTimeout(()=>{
 balloon.remove();
-},10000);
-},700);
+},18000);
+
+},2000);
 
 </script></body>
 </html>
