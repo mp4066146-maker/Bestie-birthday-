@@ -8,7 +8,7 @@ alert("🎂 Happy 17th Birthday Bestie ❤️\n\nFrom Nitish Patel");
 
 setInterval(()=>{
 let heart=document.createElement("div");
-heart.innerHTML="❤️";
+heart.innerHTML="💖";
 heart.className="heart";
 heart.style.left=Math.random()*100+"vw";
 document.body.appendChild(heart);
@@ -35,28 +35,27 @@ balloon.remove();
 },1200);
 
 window.onload=function(){
+
 setTimeout(()=>{
 alert("🎉 Welcome Bestie!\n\nA Special Birthday Surprise Awaits You ❤️");
 },1000);
-  }
-for(let i=0;i<20;i++){
 
+for(let i=0;i<20;i++){
 let heart=document.createElement("div");
-heart.innerHTML="❤️";
+heart.innerHTML="💖";
 heart.className="heart";
 heart.style.left=Math.random()*100+"vw";
 document.body.appendChild(heart);
-
 }
 
 for(let i=0;i<15;i++){
-
 let balloon=document.createElement("div");
 balloon.innerHTML="🎈";
 balloon.className="balloon";
 balloon.style.left=Math.random()*100+"vw";
 document.body.appendChild(balloon);
-
 }
 
 alert("SCRIPT WORKING");
+
+};
