@@ -1,21 +1,176 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Happy 17th Birthday Bestie</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 17th Birthday Bestie ❤️</title>
 
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9ecf,#ffd6ea);
+text-align:center;
+overflow-x:hidden;
+}
+
+.hero{
+padding:30px;
+color:white;
+}
+
+.hero img{
+width:250px;
+height:250px;
+object-fit:cover;
+border-radius:50%;
+border:6px solid white;
+box-shadow:0 0 30px rgba(255,255,255,.6);
+}
+
+h1{
+font-size:38px;
+margin-top:20px;
+}
+
+.gallery{
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding:20px;
+}
+
+.gallery img{
+width:220px;
+height:280px;
+border-radius:20px;
+object-fit:cover;
+}
+
+.message{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,.1);
+}
+
+button{
+padding:15px 30px;
+border:none;
+border-radius:30px;
+font-size:18px;
+background:#ff4d88;
+color:white;
+cursor:pointer;
+}
+
+#gift{
+display:none;
+margin:20px;
+background:white;
+padding:20px;
+border-radius:20px;
+}
+
+.heart{
+position:fixed;
+font-size:25px;
+animation:float 5s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100px);}
+}
+</style>
+
+</head>
 <body>
+
+<div class="hero">
+
+<img src="file_000000008b9871fa8c859153eaff21d4.png">
 
 <h1>🎂 Happy 17th Birthday Bestie 🎂</h1>
 
 <h2>From Nitish Patel ❤️</h2>
 
-<p>Welcome to your special birthday surprise!</p>
+<p>My Best Friend Forever 💖</p>
 
-<button onclick="showGift()">🎁 Open Surprise Gift</button>
+</div>
 
-<script src="script.js"></script>
+<div class="message">
+
+<h2>💌 A Special Message For You</h2>
+
+<p>
+Hey Bestie ❤️<br><br>
+
+Aaj tumhara special day hai.<br>
+Main dua karta hu ki tumhari life happiness, success aur beautiful memories se bhar jaye. ✨<br><br>
+
+Thank you for being such an amazing best friend. 🤝💖<br><br>
+
+Happy 17th Birthday Bestie 🎂🎉
+</p>
+
+</div>
+
+<h2>📸 Beautiful Memories</h2>
+
+<div class="gallery">
+
+<img src="IMG-20260118-WA0005.jpg">
+<img src="IMG-20260404-WA0000.jpg">
+<img src="IMG-20260418-WA0006.jpg">
+<img src="IMG-20260613-WA0000.jpg">
+<img src="file_000000008b9871fa8c859153eaff21d4.png">
+
+</div>
+
+<button onclick="openGift()">🎁 Open Surprise Gift</button>
+
+<div id="gift">
+
+<h2>🎉 Surprise Gift 🎉</h2>
+
+<p>
+💖 Unlimited Happiness<br>
+🌟 Success In Life<br>
+😊 Beautiful Memories<br>
+🎂 Wonderful Birthday<br>
+🤝 Forever Friendship
+</p>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5d4f8f95f8.mp3?filename=romantic-piano-114117.mp3">
+</audio>
+
+<script>
+
+function openGift(){
+document.getElementById("gift").style.display="block";
+alert("🎂 Happy 17th Birthday Bestie ❤️");
+}
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.innerHTML="❤️";
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+},600);
+
+</script>
 
 </body>
 </html>
