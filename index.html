@@ -2,13 +2,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 17th Birthday Bestie ❤️</title><style>
+<title>Happy 17th Birthday Bestie ❤️</title><script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script><style>
 body{
 margin:0;
 font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#ff9ecf,#ffd6ea);
 text-align:center;
 overflow-x:hidden;
+}
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#ff4d88;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+color:white;
+font-size:24px;
+font-weight:bold;
 }
 
 .hero{
@@ -103,7 +119,9 @@ transform:translateY(100vh);
 transform:translateY(-220vh);
 }
 }
-</style></head><body><div class="hero">
+</style></head><body><div id="loader">
+🎁 A Special Surprise For Bestie ❤️
+</div><div class="hero">
 <img src="file_000000008b9871fa8c859153eaff21d4.png"><h1>🎂 Happy 17th Birthday Bestie 🎂</h1><h2>From Nitish Patel ❤️</h2><p>My Best Friend Forever 💖</p>
 </div><div class="message">
 <h2>💌 A Special Message For You</h2><p>
@@ -132,10 +150,26 @@ Happy 17th Birthday Bestie 🎂🎉
 </p>
 </div><script>
 
+window.onload=function(){
+
+confetti({
+particleCount:250,
+spread:180,
+origin:{y:0.6}
+});
+
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+
 alert("🎉 Welcome Bestie!\n\nA Special Birthday Surprise Awaits You ❤️");
+
+},3000);
+
+};
 
 function openGift(){
 document.getElementById("gift").style.display="block";
+
 alert("🎂 Happy 17th Birthday Bestie ❤️\n\nFrom Nitish Patel");
 }
 
