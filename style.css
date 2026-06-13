@@ -1,0 +1,22 @@
+body{
+margin:0;
+padding:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ff9ecf,#ffd6ea);
+text-align:center;
+}
+
+h1{
+margin-top:50px;
+color:white;
+font-size:40px;
+}
+
+h2{
+color:white;
+}
+
+p{
+font-size:20px;
+color:white;
+}
