@@ -1,22 +1,101 @@
 body{
 margin:0;
 padding:0;
-font-family:Arial, sans-serif;
-background:linear-gradient(135deg,#ff9ecf,#ffd6ea);
+font-family:'Arial',sans-serif;
+background:linear-gradient(135deg,#ffb6d9,#ffd8ec);
+overflow-x:hidden;
 text-align:center;
 }
 
-h1{
-margin-top:50px;
+.hero{
+padding:30px;
 color:white;
-font-size:40px;
+animation:fadeIn 2s ease;
+}
+
+.hero img{
+width:280px;
+height:280px;
+object-fit:cover;
+border-radius:50%;
+border:8px solid white;
+box-shadow:0 0 40px rgba(255,255,255,.7);
+}
+
+h1{
+font-size:48px;
+margin-top:20px;
+text-shadow:2px 2px 10px rgba(0,0,0,.2);
 }
 
 h2{
 color:white;
 }
 
-p{
-font-size:20px;
+.message,#gift{
+background:white;
+margin:25px;
+padding:25px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.gallery{
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding:20px;
+scroll-snap-type:x mandatory;
+}
+
+.gallery img{
+width:240px;
+height:320px;
+object-fit:cover;
+border-radius:20px;
+scroll-snap-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff4d88;
 color:white;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(255,77,136,.4);
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.balloon{
+position:fixed;
+bottom:-100px;
+font-size:35px;
+animation:fly 12s linear infinite;
+}
+
+.heart{
+position:fixed;
+font-size:25px;
+animation:float 5s linear infinite;
+}
+
+@keyframes fly{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120vh);}
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100px);}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
 }
