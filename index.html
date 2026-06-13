@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 17th Birthday Bestie ❤️</title>
-
-<style>
+<title>Happy 17th Birthday Bestie ❤️</title><style>
 body{
 margin:0;
-padding:0;
 font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#ff9ecf,#ffd6ea);
 text-align:center;
@@ -21,17 +17,29 @@ color:white;
 }
 
 .hero img{
-width:250px;
-height:250px;
+width:260px;
+height:260px;
 object-fit:cover;
 border-radius:50%;
-border:6px solid white;
-box-shadow:0 0 30px rgba(255,255,255,.6);
+border:8px solid white;
+box-shadow:0 0 30px rgba(255,255,255,.7);
 }
 
 h1{
-font-size:38px;
-margin-top:20px;
+font-size:42px;
+color:white;
+}
+
+h2{
+color:white;
+}
+
+.message,#gift{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:25px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
 .gallery{
@@ -43,24 +51,16 @@ padding:20px;
 
 .gallery img{
 width:220px;
-height:280px;
-border-radius:20px;
+height:300px;
 object-fit:cover;
-}
-
-.message{
-background:white;
-margin:20px;
-padding:20px;
 border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,.1);
 }
 
 button{
-padding:15px 30px;
+padding:16px 35px;
 border:none;
-border-radius:30px;
-font-size:18px;
+border-radius:40px;
+font-size:20px;
 background:#ff4d88;
 color:white;
 cursor:pointer;
@@ -68,74 +68,51 @@ cursor:pointer;
 
 #gift{
 display:none;
-margin:20px;
-background:white;
-padding:20px;
-border-radius:20px;
+}
+
+.heart,.balloon{
+position:fixed;
+pointer-events:none;
+z-index:9999;
 }
 
 .heart{
-position:fixed;
-font-size:25px;
-animation:float 5s linear infinite;
+font-size:30px;
+animation:heartMove 5s linear infinite;
 }
 
-@keyframes float{
+.balloon{
+font-size:40px;
+animation:balloonMove 10s linear infinite;
+}
+
+@keyframes heartMove{
 0%{transform:translateY(100vh);}
-100%{transform:translateY(-100px);}
+100%{transform:translateY(-120vh);}
 }
-</style>
 
-</head>
-<body>
-
-<div class="hero">
-
-<img src="file_000000008b9871fa8c859153eaff21d4.png">
-
-<h1>🎂 Happy 17th Birthday Bestie 🎂</h1>
-
-<h2>From Nitish Patel ❤️</h2>
-
-<p>My Best Friend Forever 💖</p>
-
-</div>
-
-<div class="message">
-
-<h2>💌 A Special Message For You</h2>
-
-<p>
-Hey Bestie ❤️<br><br>
-
-Aaj tumhara special day hai.<br>
+@keyframes balloonMove{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-140vh);}
+}
+</style></head><body><div class="hero"><img src="file_000000008b9871fa8c859153eaff21d4.png"><h1>🎂 Happy 17th Birthday Bestie 🎂</h1><h2>From Nitish Patel ❤️</h2><p>My Best Friend Forever 💖</p></div><div class="message"><h2>💌 A Special Message For You</h2><p>
+Hey Bestie ❤️<br><br>Aaj tumhara special day hai.<br>
 Main dua karta hu ki tumhari life happiness, success aur beautiful memories se bhar jaye. ✨<br><br>
 
 Thank you for being such an amazing best friend. 🤝💖<br><br>
 
 Happy 17th Birthday Bestie 🎂🎉
-</p>
 
-</div>
-
-<h2>📸 Beautiful Memories</h2>
-
-<div class="gallery">
-
+</p></div><h2>📸 Beautiful Memories</h2><div class="gallery">
 <img src="IMG-20260118-WA0005.jpg">
 <img src="IMG-20260404-WA0000.jpg">
 <img src="IMG-20260418-WA0006.jpg">
 <img src="IMG-20260613-WA0000.jpg">
 <img src="file_000000008b9871fa8c859153eaff21d4.png">
-
-</div>
-
-<button onclick="openGift()">🎁 Open Surprise Gift</button>
+</div><button onclick="openGift()">🎁 Open Surprise Gift</button>
 
 <div id="gift">
-
 <h2>🎉 Surprise Gift 🎉</h2>
-
 <p>
 💖 Unlimited Happiness<br>
 🌟 Success In Life<br>
@@ -143,14 +120,38 @@ Happy 17th Birthday Bestie 🎂🎉
 🎂 Wonderful Birthday<br>
 🤝 Forever Friendship
 </p>
+</div><script>
 
-</div>
+alert("🎉 Welcome Bestie!\n\nA Special Birthday Surprise Awaits You ❤️");
 
-<audio autoplay loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5d4f8f95f8.mp3?filename=romantic-piano-114117.mp3">
-</audio>
+function openGift(){
+document.getElementById("gift").style.display="block";
+alert("🎂 Happy 17th Birthday Bestie ❤️\n\nFrom Nitish Patel");
+}
 
-<script src="script.js"></script>
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+document.body.appendChild(heart);
 
-</body>
+setTimeout(()=>{
+heart.remove();
+},5000);
+},300);
+
+setInterval(()=>{
+let balloon=document.createElement("div");
+balloon.className="balloon";
+balloon.innerHTML="🎈";
+balloon.style.left=Math.random()*100+"vw";
+document.body.appendChild(balloon);
+
+setTimeout(()=>{
+balloon.remove();
+},10000);
+},700);
+
+</script></body>
 </html>
